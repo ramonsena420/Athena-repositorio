@@ -1,0 +1,20 @@
+footer {
+    background-color: #630a96;
+    height: 220px;
+    width: auto;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: #630a96 20px solid;
+}
+
+.p4 {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    
+    font-size: medium;
+    height: 20px;
+}
+
