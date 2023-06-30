@@ -27,7 +27,7 @@ router.post("/produto", function(req, res){
     res.json(req.body)
 });
 
-router.post(
+router.post( 
     "/cadastro",
     body("d-cadastro"),
     body("t-nome").isInt({min: 3, max: 40})
