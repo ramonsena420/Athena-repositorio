@@ -41,8 +41,6 @@ router.post(
 
     function (req, res){
         const errors = validationResult(req)
-        let nome = req.body.t-nome
-        let email = req.body.t-email
         if(!errors.isEmpty()){
             console.log(errors);
             return res.render("pages/cadastro", {retorno: null, erros: errors, valores: req.body});
