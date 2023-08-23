@@ -23,6 +23,26 @@ router.get("/produto", function(req, res){
     res.render("pages/produto", {retorno: null, erros: null})}
 );
 
+router.get("/usuario", function(req, res){
+    res.render("pages/usuario", {retorno: null, erros: null})}
+);
+
+router.get("/notifi", function(req, res){
+    res.render("pages/notifi", {retorno: null, erros: null})}
+);
+
+router.get("/compras", function(req, res){
+    res.render("pages/compras", {retorno: null, erros: null})}
+);
+
+router.get("/favoritos", function(req, res){
+    res.render("pages/favoritos", {retorno: null, erros: null})}
+);
+
+router.get("/config", function(req, res){
+    res.render("pages/config", {retorno: null, erros: null})}
+);
+
 router.post("/produto", function(req, res){
     res.json(req.body)
 });
@@ -43,7 +63,7 @@ router.post(
         const errors = validationResult(req)
         if(!errors.isEmpty()){
             console.log(errors);
-            return res.render("pages/cadastro", {retorno: null, erros: errors, valores: req.body});
+            return res.render("pages/home", {retorno: null, erros: errors, valores: req.body});
         }
         let senha = req.body.t-senha
         let confirmar = req.body.t-confsenha
@@ -66,10 +86,14 @@ router.post(
     function(req, res){
         const errors = validationResult(req)
         if(!errors.isEmpty()){
-            console.log(errors);
+            console.log(errors);    
             return res.render("pages/home", {retorno: null, erros: errors, valores: req.body});
         }
     }
 )
+
+router.post("/home", function(req, res){
+    res.json(req.body)
+});
 
 module.exports = router
