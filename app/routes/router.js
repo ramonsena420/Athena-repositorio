@@ -1,5 +1,15 @@
 var express = require("express");
 var router = express.Router();
+
+var bcrypt = express.Router();
+var salt = bcrypt.genSaltSync(12);
+
+var fabricaDeConexao = require("../../config/connection-factory");
+var conexao = fabricaDeConexao();
+
+var UsuarioDAL = require("../models/UsuarioDAL");
+var usuariodAL = new UsuarioDAL(conexao);
+
 const {body, validationResult } = require("express-validator");
 
 router.get("/", function (req, res){
@@ -53,7 +63,7 @@ router.post(
     body("t-nome").isInt({min: 3, max: 40})
     .withMessage("O nome deve ter no minimo 3 caracteres"),
     body("t-email").isEmail({min: 5, max: 50})
-    .withMessage("O email deve ser válido"),
+    .withMessage("O email deve ser válido"), 
     body("t-senha").isInt({min: 4, max: 15})
     .withMessage("A senha deve ser válida"),
     body("t-confsenha").isInt({min: 4, max: 15})
