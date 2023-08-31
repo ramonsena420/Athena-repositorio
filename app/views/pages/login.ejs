@@ -36,6 +36,22 @@
             })
         }
         %>
+        <%
+            let avisoErro = {"email":"", "senha_usu":""}
+            let msgErro = {"email":"", "senha_usu":""}
+                if(listaErros){
+                    listaErros.errors.forEach(function(itemErro){
+                        if(itemErro.path == "email_usu"){
+                            avisoErro.email_usu = "erro";
+                            msgErro.email_usu =itemErro.msg
+                        }
+                        if(itemErro.path == "senha_usu"){
+                            avisoErro.senha_usu = "erro";
+                            msgErro.senha_usu = itemErro.msg
+                        }
+                    })
+                }
+        %>
         <form action="/login" method="post">
             <div id="d-login">
                 <h2>Entrar</h2>
@@ -43,11 +59,13 @@
                 <div class="input-email">
                     <label for="t-email">Emailㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</label>
                     <input type="email" name="t-email" id="t-email" value="<%= valores.temail %>" class="<%= err_temail%>" required>
+                    <span><%= msgErro.email_usu %></span>
                 </div>
 
                 <div class="input-senha">
                     <label for="t-senha">Senhaㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</label>
                     <input type="password" name="t-senha" id="t-senha" value="<%= valores.tsenha %>" class="<%= err_tsenha %>" required>
+                    <span><%= msgErro.senha_usu %></span>
                 </div>
                 
                 <a href=""> <h5 id="senha-ex">Esqueci a senha</h5> </a>
