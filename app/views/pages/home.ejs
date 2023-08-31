@@ -18,7 +18,18 @@
 
 </head>
 <body>
+    <%
+    if(autenticado){
+        %>
+        <span>Olá <%=autenticado %>!</span>
+        <%
 
+    }else{
+    &>
+    <span>Olá visitante!</span>
+    <&
+    }
+    %>
     <header>
         
         <a href="home"><img src="img/logo-letreiro.png" alt="logo-athena" class="logo-athena"></a>
@@ -34,9 +45,8 @@
                 <span></span>
                 <span></span>
             </div>
-            
+        </nav>   
        <ul>
-
            <img src="img/profile-user.png" alt="Usuário" id="icon-profile-perfil"> 
 
            <h3 class="user-name-profile">Usuário</h3>
@@ -49,6 +59,7 @@
            <li><a href="#"><img src="img/delivery.png" id="icon-button-menu">Encomendas</a></li>
            <li><a href="#"><img src="img/heart.png" id="icon-button-menu">Favoritos</a></li>
            <li><a href="#"><img src="img/bell.png" id="icon-button-menu">Notificações</a></li>
+           <li><a href="/sair"><img src="" id="">Sair</a></li>
 
            <hr>
 
@@ -58,7 +69,6 @@
            <hr>
            
            <li><a href="#"><img src="img/setting.png" id="icon-button-menu">Configurações</a></li>
-
        </ul>
 
         </nav> 
@@ -217,6 +227,9 @@
             <p><a href="" class="p4">Acessibilidade</a></p>
             <p><a href="" class="p4">Contato</a></p>
             <p><a href="" class="p4">Informações sobre seguro</a></p>
+            <p>
+                <a href="/adm">Administrador</a>
+            </p>
         </section>
     </footer>
 </body>
