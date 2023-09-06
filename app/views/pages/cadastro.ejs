@@ -45,7 +45,7 @@
             listaErros.errors.forEach(function(itemErro){
                 if(itemErro.path == "nome_usu"){
                     avisoErro.nome_usu = "erro";
-                    msgErro.nome_usu = itemErro.msg
+                    msgErro.nome_usu += " "+itemErro.msg
                 }
                 if(itemErro.path == "email_usu"){
                     avisoErro.email_usu = "erro";
