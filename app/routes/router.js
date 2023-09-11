@@ -72,13 +72,17 @@ router.post("/produto", function(req, res){
 router.post( 
     "/cadastro",
     body("d-cadastro"),
-    body("t-nome").isInt({min: 3, max: 40})
+    body("t-nome")
+        .isInt({min: 3, max: 40})
         .withMessage("O nome deve ter no minimo 3 caracteres"),
-    body("t-email").isEmail({min: 5, max: 50})
+    body("t-email")
+        .isEmail({min: 5, max: 50})
         .withMessage("O email deve ser válido"), 
-    body("t-senha").isInt({min: 4, max: 15})
+    body("t-senha")
+        .isStrongPassword()
         .withMessage("A senha deve ser válida"),
-    body("t-confsenha").isInt({min: 4, max: 15})
+    body("t-confsenha")
+        .isStrongPassword()
         .withMessage("A senha deve ser a mesma que a anterior"),
 
     async function (req, res){
@@ -110,7 +114,7 @@ router.post(
         .isEmail({min:5, max:50})
         .withMessage("O email deve ser válido"),
     body("t-senha")
-        .isInt({min: 4, max: 15})
+        .isStrongPassword()
         .withMessage("A senha deve ser válida"),
 
     gravarUsuAutenticado(usuarioDAL, bcrypt),
