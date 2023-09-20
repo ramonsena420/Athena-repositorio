@@ -132,7 +132,7 @@ router.post(
     });
 
 router.post("/home", function(req, res){
-    res.json(req.body)
+    res.json(req.body) 
 });
 
 module.exports = router
